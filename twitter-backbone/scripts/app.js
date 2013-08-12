@@ -4,7 +4,11 @@ app.Tweet = Backbone.Model.extend({});
 
 app.TweetsCollection = Backbone.Collection.extend({
   model: app.Tweet,
-  url : 'http://te.chni.ca/twitter.api/tweet.php?callback=?',
+  q: 'javascript',
+  url : function(){
+          return 'http://te.chni.ca/twitter.api/tweet.php?callback=?&q=' + this.q
+        },
+      
   parse: function( payload ){
     return payload.statuses;
   }
@@ -13,6 +17,9 @@ app.TweetsCollection = Backbone.Collection.extend({
 
 app.AppView = Backbone.View.extend({
   el: '#twitter-app',
+  events:{
+    'click #twitter-search': 'twitterSearch'
+  },
   initialize : function(){
                   this.tweet_list = $( '#tweets-list' );
                   this.listenTo( app.Tweets, 'add', this.addTweet );    
@@ -20,6 +27,13 @@ app.AppView = Backbone.View.extend({
   addTweet: function( tweet ){
     var view = new app.TweetView({ model: tweet });
     this.tweet_list.append( view.render().el );
+  },
+  twitterSearch: function(){
+    console.log(app.Tweets.q)
+    app.Tweets.q = $('#search-field').val().trim(); 
+     $('#tweets-list').html('')
+     app.Tweets.fetch();
+
   }
 });
 
