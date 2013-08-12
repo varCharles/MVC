@@ -1,0 +1,13 @@
+<div>
+  <h2>Twitter Query</h2> 
+  <input type="text" ng-model="twitterUser">
+  <input type="submit" ng-click="getTweets()" />
+  <ul>
+      <li ng-repeat="tweet in tweets">
+      <img ng-src="{{tweet.user.profile_image_url}}" />
+      {{tweet.user.name}} @{{tweet.user.screen_name}}
+      <p>{{tweet.text}}</p>
+      <p>{{tweet.retweet_count}} Retweets, {{tweet.favorite_count}} Favorites
+      </li>
+  </ul>
+</div>

@@ -1,0 +1,11 @@
+<div>
+  <h2>Freebase Movie Query</h2> 
+  <input type="text" ng-model="freebaseQuery">
+  <input type="submit" ng-click="getQuery()" />
+  <ul>
+      <li ng-repeat="movie in movies">
+      <img ng-src="https://usercontent.googleapis.com/freebase/v1/image{{movie.id}}" />
+      <a href="#/movie{{movie.mid}}">{{movie.name}}</a>
+      </li>
+  </ul>
+</div>
