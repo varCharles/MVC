@@ -1,10 +1,10 @@
-<img ng-src="https://usercontent.googleapis.com/freebase/v1/image/m/{{movieid}}" />
+<img ng-src="https://usercontent.googleapis.com/freebase/v1/image/m/{{movieid}}?key=AIzaSyC8nRgXdpK16t5aiXpXexUVEIWma1RBNlU" />
 <p>{{movie['/type/object/name'].values[0].text}}</p>
 <p>{{movie['/common/topic/description'].values[0].value}}</p>
 <h2>Starring</h2>
 <ul>
   <li ng-repeat="actor in actors">
-  <img ng-src="https://usercontent.googleapis.com/freebase/v1/image{{actor.property['/film/performance/actor'].values[0].id}}" />
+  <img ng-src="https://usercontent.googleapis.com/freebase/v1/image{{actor.property['/film/performance/actor'].values[0].id}}?key=AIzaSyC8nRgXdpK16t5aiXpXexUVEIWma1RBNlU" />
   <a href="#/actor{{actor.property['/film/performance/actor'].values[0].id}}">
   	{{actor.property['/film/performance/actor'].values[0].text}}
   	</a>

@@ -4,7 +4,7 @@
   <input type="submit" ng-click="getQuery()" />
   <ul>
       <li ng-repeat="movie in movies">
-      <img ng-src="https://usercontent.googleapis.com/freebase/v1/image{{movie.id}}" />
+      <img ng-src="https://usercontent.googleapis.com/freebase/v1/image{{movie.id}}?key=AIzaSyC8nRgXdpK16t5aiXpXexUVEIWma1RBNlU" />
       <a href="#/movie{{movie.mid}}">{{movie.name}}</a>
       </li>
   </ul>
